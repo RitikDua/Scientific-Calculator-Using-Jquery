@@ -1,0 +1,162 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            padding: 30px;
+        }
+        
+        .jp {
+            background-image: url("ht.jpg");
+            background-size: cover;
+            height: 95vh;
+            position: relative;
+            box-shadow: inset 120px 100px 250px #000000, inset -120px -100px 250px #000000;
+        }
+        
+        .btn {
+            border-radius: 12px;
+            width: 70px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .dis {
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .jumbotron {
+            width: 500px;
+            height: 300px;
+            margin-top: 150px;
+            border-radius: 12px;
+        }
+        
+        .jumbotron:hover {
+            box-shadow: 10px 10px 10px #383838;
+        }
+        
+        .head {
+            letter-spacing: 6px;
+            position: absolute;
+            margin-top: 30px;
+            margin-left: 600px;
+            color: #fff;
+        }
+        
+        .tail {
+            position: absolute;
+            margin-top: 80px;
+            margin-left: 600px;
+            letter-spacing: 17px;
+            color: #fff;
+        }
+    </style>
+    <script>
+        $(document).ready(function(e) {
+
+            $(".num").click(function() {
+                var a = $(this).val();
+                $(".dis").val($(".dis").val() + a);
+            });
+
+            $(".ac").click(function() {
+                $(".dis").val(null);
+            });
+
+            $(".eq").click(function() {
+                $(".dis").val(eval($(".dis").val()));
+            });
+
+            $(".sin").click(function() {
+                $(".dis").val(Math.sin($(".dis").val() * Math.PI / 180).toFixed(2))
+            });
+
+            $(".tan").click(function() {
+                $(".dis").val(Math.tan($(".dis").val() * Math.PI / 180).toFixed(2));
+            });
+
+            $(".cos").click(function() {
+                $(".dis").val(Math.cos($(".dis").val() * Math.PI / 180).toFixed(2));
+            });
+
+            $(".log").click(function() {
+                $(".dis").val(Math.log($(".dis").val()) / Math.LN10);
+            });
+
+            $(".sq").click(function() {
+                $(".dis").val(Math.pow($(".dis").val(), 2));
+            });
+
+            $(".pie").click(function() {
+                a = $(".dis").val();
+                $(".dis").val(eval(a * 3.14));
+            });
+
+            $("#back").click(function() {
+                var num = $(".dis").val();
+                num = num.substring(0, num.length - 1);
+                $(".dis").val(num);
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="jp">
+        <header>
+            <h1 class="head">SCIENTIFIC</h1>
+            <h5 class="tail">CALCULATOR</h5>
+        </header>
+
+        <br>
+
+        <center>
+            <div class="jumbotron">
+                <input type="text" style="background-image:linear-gradient(white); width:450; height:50; font-size:20;" class="dis" placeholder="0"><br>
+                <br>
+
+                <input type="button" class="btn btn-primary sin" value="Sin">
+                <input type="button" class="btn btn-primary num" value="1">
+                <input type="button" class="btn btn-primary num" value="2">
+                <input type="button" class="btn btn-primary num" value="3">
+                <input type="button" class="btn btn-primary num" value="+">
+                <input type="button" class="btn btn-primary ac" value="AC"><br>
+                <input type="button" class="btn btn-primary cos" value="Cos">
+                <input type="button" class="btn btn-primary num" value="4">
+                <input type="button" class="btn btn-primary num" value="5">
+                <input type="button" class="btn btn-primary num" value="6">
+                <input type="button" class="btn btn-primary num" value="-">
+                <input type="button" class="btn btn-primary " id="back" value="DEL"><br>
+                <input type="button" class="btn btn-primary tan" value="Tan">
+                <input type="button" class="btn btn-primary num" value="7">
+                <input type="button" class="btn btn-primary num" value="8">
+                <input type="button" class="btn btn-primary num" value="9">
+                <input type="button" class="btn btn-primary num" value="*">
+                <input type="button" class="btn btn-primary log" value="Log"><br>
+                <input type="button" class="btn btn-primary num" value=".">
+                <input type="button" class="btn btn-primary eq" value="=">
+                <input type="button" class="btn btn-primary num" value="0">
+                <input type="button" class="btn btn-primary sq" value="X^2">
+                <input type="button" class="btn btn-primary num" value="/">
+                <input type="button" class="btn btn-primary pie" value="Pi"><br>
+
+        </center><br>
+        </div>
+    </div>
+</body>
+
+</html>
