@@ -75,15 +75,12 @@
                 var a = $(this).val();
                 $(".dis").val($(".dis").val() + a);
             });
-
             $(".ac").click(function() {
                 $(".dis").val(null);
             });
-
             $(".eq").click(function() {
                 $(".dis").val(eval($(".dis").val()));
             });
-
             $(".sin").click(function() {
                 if ($('.deg').is(':checked')) {
                     $(".dis").val(Math.sin($(".dis").val() * Math.PI / 180));
@@ -91,7 +88,13 @@
                     $(".dis").val(Math.sin($(".dis").val()));
                 }
             });
-
+            $(".cos").click(function() {
+                if ($('.deg').is(':checked')) {
+                    $(".dis").val(Math.cos($(".dis").val() * Math.PI / 180));
+                } else if ($('.rad').is(':checked')) {
+                    $(".dis").val(Math.cos($(".dis").val()));
+                }
+            });
             $(".tan").click(function() {
                 if ($('.deg').is(':checked')) {
                     $(".dis").val(Math.tan($(".dis").val() * Math.PI / 180));
@@ -99,37 +102,16 @@
                     $(".dis").val(Math.tan($(".dis").val()));
                 }
             });
-
-            $(".cos").click(function() {
-                if ($('.deg').is(':checked')) {
-                    $(".dis").val(Math.cos($(".dis").val() * Math.PI / 180));
-                } else if ($('.rad').is(':checked')) {
-                    $(".dis").val(Math.cos($(".dis").val()));
-                }
-                $(".dis").val(Math.sin($(".dis").val() * Math.PI / 180).toFixed(2))
-            });
-
-            $(".tan").click(function() {
-                $(".dis").val(Math.tan($(".dis").val() * Math.PI / 180).toFixed(2));
-            });
-
-            $(".cos").click(function() {
-                $(".dis").val(Math.cos($(".dis").val() * Math.PI / 180).toFixed(2));
-            });
-
             $(".log").click(function() {
                 $(".dis").val(Math.log($(".dis").val()) / Math.LN10);
             });
-
             $(".sq").click(function() {
                 $(".dis").val(Math.pow($(".dis").val(), 2));
             });
-
             $(".pie").click(function() {
                 a = $(".dis").val();
                 $(".dis").val(eval(a * 3.14));
             });
-
             $("#back").click(function() {
                 var num = $(".dis").val();
                 num = num.substring(0, num.length - 1);
@@ -158,7 +140,6 @@
 
                     <input type="text" style="background-image:linear-gradient(white); width:250; height:50; font-size:20;margin-left: 28px;" class="dis" placeholder="0"><br>
                 </div>
-
                 <br>
 
                 <input type="button" class="btn btn-primary sin" value="Sin">
@@ -185,7 +166,6 @@
                 <input type="button" class="btn btn-primary sq" value="X^2">
                 <input type="button" class="btn btn-primary num" value="/">
                 <input type="button" class="btn btn-primary pie" value="Pi"><br>
-
         </center><br>
         </div>
     </div>
